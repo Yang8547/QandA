@@ -11,6 +11,15 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('api/register', function () {
+	$user = new App\User;
+    return $user->signUp();
+});
+Route::get('api/login', function () {
+	$user = new App\User;
+    return $user->signIn();
 });
