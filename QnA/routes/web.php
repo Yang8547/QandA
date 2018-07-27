@@ -29,6 +29,10 @@ Route::get('api/logout', function () {
 	$user = new App\User;
 	return $user->logOut();  
 });
+Route::get('api/question/add', function () {
+	$question = new App\Question;
+	return $question->add();  
+});
 // Route::get('api/checklogin', function () {
 // 	$user = new App\User;
 // 	dd($user->checkLogin()); 

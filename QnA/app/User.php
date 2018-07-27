@@ -50,7 +50,7 @@ class User extends Authenticatable
         $this->password = $hashedPassword;
         if($this->save()) {
             return ['status'=>1, 'msg'=>'Record has been added successful',
-            'username'=>$userName, 'password'=>$hashedPassword];
+            'username'=>$userName, 'id'=>$this->id, 'password'=>$hashedPassword];
         } else {
            return ['status'=>0, 'msg'=>'Record cannot be added!'];
         }
