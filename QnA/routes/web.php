@@ -22,4 +22,14 @@ Route::get('api/register', function () {
 Route::get('api/login', function () {
 	$user = new App\User;
     return $user->signIn();
+    // $user->signIn();
+    // return redirect('/');
 });
+Route::get('api/logout', function () {
+	$user = new App\User;
+	return $user->logOut();  
+});
+// Route::get('api/checklogin', function () {
+// 	$user = new App\User;
+// 	dd($user->checkLogin()); 
+// });
