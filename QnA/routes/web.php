@@ -33,6 +33,10 @@ Route::get('api/question/add', function () {
 	$question = new App\Question;
 	return $question->add();  
 });
+Route::get('api/question/edit', function () {
+	$question = new App\Question;
+	return $question->edit();  
+});
 // Route::get('api/checklogin', function () {
 // 	$user = new App\User;
 // 	dd($user->checkLogin()); 

@@ -49,7 +49,7 @@ class User extends Authenticatable
         $this->username = $userName;
         $this->password = $hashedPassword;
         if($this->save()) {
-            return ['status'=>1, 'msg'=>'Record has been added successful',
+            return ['status'=>1, 'msg'=>'Record has been added successfully',
             'username'=>$userName, 'id'=>$this->id, 'password'=>$hashedPassword];
         } else {
            return ['status'=>0, 'msg'=>'Record cannot be added!'];
@@ -79,7 +79,7 @@ class User extends Authenticatable
                 session()->put('username', $userInfo->username);
                 session()->put('userID', $userInfo->id);
                 // dd(session()->all());
-                return ['status'=>1, 'msg'=>'login successful', 
+                return ['status'=>1, 'msg'=>'login successfully', 
                 'name'=>session('username'), 'id'=>session('userID')];
             }
         }
@@ -96,7 +96,7 @@ class User extends Authenticatable
         // clear session
         session()->forget('username');
         session()->forget('userID');
-        return ['status'=>1, 'msg'=>'log out successful'];
+        return ['status'=>1, 'msg'=>'log out successfully'];
     }
 
     
