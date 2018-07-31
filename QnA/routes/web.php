@@ -37,6 +37,14 @@ Route::get('api/question/edit', function () {
 	$question = new App\Question;
 	return $question->edit();  
 });
+Route::get('api/question/read', function () {
+	$question = new App\Question;
+	return $question->read();  
+});
+Route::get('api/question/remove', function () {
+	$question = new App\Question;
+	return $question->remove();  
+});
 // Route::get('api/checklogin', function () {
 // 	$user = new App\User;
 // 	dd($user->checkLogin()); 
