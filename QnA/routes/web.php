@@ -45,6 +45,18 @@ Route::get('api/question/remove', function () {
 	$question = new App\Question;
 	return $question->remove();  
 });
+Route::get('api/answer/add', function () {
+	$answer = new App\Answer;
+	return $answer->add();  
+});
+Route::get('api/answer/edit', function () {
+	$answer = new App\Answer;
+	return $answer->edit();  
+});
+Route::get('api/answer/read', function () {
+	$answer = new App\Answer;
+	return $answer->read();  
+});
 // Route::get('api/checklogin', function () {
 // 	$user = new App\User;
 // 	dd($user->checkLogin()); 
