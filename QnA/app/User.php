@@ -99,5 +99,10 @@ class User extends Authenticatable
         return ['status'=>1, 'msg'=>'log out successfully'];
     }
 
+    // many to many relationship
+    public function answers() {
+        retrun $this->belongsToMany('App\Answer')->withPivot('vote');
+    }
+
     
 }

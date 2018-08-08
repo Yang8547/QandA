@@ -121,6 +121,10 @@ class Answer extends Model
 
     }
 
+    // many to many relationship
+    public function users() {
+    	retrun $this->belongsToMany('App\User')->withPivot('vote');
+    }
 
 
 
