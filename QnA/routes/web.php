@@ -57,6 +57,18 @@ Route::get('api/answer/read', function () {
 	$answer = new App\Answer;
 	return $answer->read();  
 });
+Route::get('api/comment/add', function () {
+	$comment = new App\Comment;
+	return $comment->add();  
+});
+Route::get('api/comment/read', function () {
+	$comment = new App\Comment;
+	return $comment->read();  
+});
+Route::get('api/comment/remove', function () {
+	$comment = new App\Comment;
+	return $comment->remove();  
+});
 // Route::get('api/checklogin', function () {
 // 	$user = new App\User;
 // 	dd($user->checkLogin()); 
