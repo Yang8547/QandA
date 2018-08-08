@@ -57,6 +57,10 @@ Route::get('api/answer/read', function () {
 	$answer = new App\Answer;
 	return $answer->read();  
 });
+Route::get('api/answer/vote', function () {
+	$answer = new App\Answer;
+	return $answer->vote();  
+});
 Route::get('api/comment/add', function () {
 	$comment = new App\Comment;
 	return $comment->add();  

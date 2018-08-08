@@ -101,7 +101,7 @@ class User extends Authenticatable
 
     // many to many relationship
     public function answers() {
-        retrun $this->belongsToMany('App\Answer')->withPivot('vote');
+        return $this->belongsToMany('App\Answer')->withPivot('vote');
     }
 
     

@@ -123,7 +123,40 @@ class Answer extends Model
 
     // many to many relationship
     public function users() {
-    	retrun $this->belongsToMany('App\User')->withPivot('vote');
+    	return $this->belongsToMany('App\User')->withPivot('vote')->withTimestamps();
+    }
+
+    // like dislike method
+    public function vote() {
+    	// check login
+    	if (!($this->userIns()->checkLogin())) {
+    		return ['status'=>0, 'msg'=>'login is required'];
+    	}
+
+    	// check answer id and vote
+    	$answerID = Request::get('aid');
+    	$vote = Request::get('vote');
+    	if (!$answerID || $vote==null) {
+    		return ['status'=>0, 'msg'=>'answer id and vote are required'];
+    	}
+
+    	// check answer id in DB
+    	$answer = $this->find($answerID);
+    	if (!$answer) {
+    		return ['status'=>0, 'msg'=>'answer does not exist'];
+    	}
+
+    	// delete the existing vote under the same answer and same user if exists
+    	$answer->users()
+    		   ->newPivotStatement()
+    		   ->where(['answer_id'=>$answerID, 'user_id'=>session('userID')])
+    		   ->delete();
+
+    	// insert vote in pivot table
+    	$voteNumber = $vote >= 1? 1:0;
+    	$answer->users()->attach(session('userID'), ['vote'=>$voteNumber]);
+    	return ['status'=>1, 'msg'=>'voted'];
+
     }
 
 
