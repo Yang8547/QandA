@@ -73,6 +73,7 @@ Route::get('api/comment/remove', function () {
 	$comment = new App\Comment;
 	return $comment->remove();  
 });
+Route::get('api/timeline', 'CommonController@timeline');
 // Route::get('api/checklogin', function () {
 // 	$user = new App\User;
 // 	dd($user->checkLogin()); 
