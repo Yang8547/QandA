@@ -164,5 +164,23 @@ class User extends Authenticatable
 
     }
 
+    // update user info
+    public function edit() {
+        // check login
+        if (!$this->checkLogin()) {
+            return ['status'=>0, 'msg'=>'login required'];
+        }
+
+        // update info
+        $user = $this->find(session('userID'));
+        $user->email = Request::get('email');
+        $user->phone = Request::get('phone');
+        $user->intro = Request::get('intro');
+        $user->avatar_url = Request::get('avatar_url');
+
+        return $user->save() ? ['status'=>1] : ['status'=>0, 'msg'=>'update failed']
+
+    }
+
     
 }
