@@ -28,6 +28,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    function questionIns() {
+        return new Question;
+    }
+
     // register 
     public function signUp() {
         // dd(Request::all());
@@ -137,6 +141,27 @@ class User extends Authenticatable
     // many to many relationship
     public function answers() {
         return $this->belongsToMany('App\Answer')->withPivot('vote');
+    }
+
+    // get user information
+    public function read() {
+        // check id
+        $userID = Request::get('id');
+        if (!$userID) {
+            return ['status'=>0, 'msg'=>'user id required'];
+        }
+        // get user info
+        $user = $this->find($userID,['id','username','intro','avatar_url']);
+        if (!$user) {
+            return ['status'=>0, 'msg'=>'user does not exist'];
+        }
+        // get number of answer and question created by the user
+        $answer_count = $user->answers()->count();
+        $question_count = $this->questionIns()->where('user_id',$userID)->count();       
+        $user->answer_count = $answer_count;
+        $user->question_count = $question_count;
+        return ['status'=>1, 'data'=>$user];
+
     }
 
     

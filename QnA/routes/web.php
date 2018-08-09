@@ -25,13 +25,17 @@ Route::get('api/login', function () {
     // $user->signIn();
     // return redirect('/');
 });
+Route::get('api/logout', function () {
+	$user = new App\User;
+	return $user->logOut();  
+});
 Route::get('api/user/changepassword', function () {
 	$user = new App\User;
     return $user->changePassword();   
 });
-Route::get('api/logout', function () {
+Route::get('api/user/read', function () {
 	$user = new App\User;
-	return $user->logOut();  
+    return $user->read();
 });
 Route::get('api/question/add', function () {
 	$question = new App\Question;
