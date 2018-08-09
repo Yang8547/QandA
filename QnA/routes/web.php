@@ -25,6 +25,10 @@ Route::get('api/login', function () {
     // $user->signIn();
     // return redirect('/');
 });
+Route::get('api/user/changepassword', function () {
+	$user = new App\User;
+    return $user->changePassword();   
+});
 Route::get('api/logout', function () {
 	$user = new App\User;
 	return $user->logOut();  

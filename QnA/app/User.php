@@ -86,6 +86,41 @@ class User extends Authenticatable
 
     }
 
+    // change password
+    public function changePassword() {
+        // check login
+        if (!$this->checkLogin()) {
+            return ['status'=>0, 'msg'=>'login required'];
+        }
+
+        // check password empty
+        $oldPW = Request::get('old');
+        $newPW = Request::get('new');
+        if (!$oldPW || !$newPW) {
+            return ['status'=>0, 'msg'=>'old password and new password are required'];      
+        }
+
+        // old password validation
+        $user = $this->find(session('userID'));
+        if (!$user) {
+            return ['status'=>0, 'msg'=>'user does not exist'];
+        }
+        $passwordValid = Hash::check($oldPW, $user->password);
+        if (!$passwordValid) {
+            return ['status'=>0, 'msg'=>'old password invalid!'];
+        }
+
+        // change password
+        $user->password = password_hash($newPW, PASSWORD_DEFAULT);
+        if ($user->save()) {
+            return ['status'=>1];
+        } else {
+            return ['status'=>0, 'msg'=>'password change fail'];
+        }
+    
+    }
+
+
     // check login
     public function checkLogin() {
         return session('username') ?: false;
