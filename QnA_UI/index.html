@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>QnA</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <nav class="navbar navbar-default" ng-controller="navCtrl">
+      <!-- Navbar Container -->
+    <div class="container">
+      <!-- Navbar Header -->
+      <div class="navbar-header">
+          <!-- Toggle Button -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navComponents" aria-expanded="false">
+              <i class="glyphicon glyphicon-align-center"></i>
+          </button>
+
+          <!-- Navbar Brand -->
+          <a href="" ui-sref="home" class="navbar-brand" ng-click="homeAct()">
+              QnA
+          </a>
+      </div>
+
+      <!-- Navbar Collapse -->
+      <div class="collapse navbar-collapse" id="navComponents">
+          <!-- Navbar Menu -->
+          <ul class="nav navbar-nav">
+              <li ng-class="{'active':home}">
+                <a href="" ui-sref="home" ng-click="homeAct()"><span class="fas fa-home"></span> Home</a>
+              </li>
+              <li ng-class="{'active':login}">
+                <a href="" ui-sref="login" ng-click="loginAct()"><span class="fas fa-sign-in-alt"></span> Log In</a>
+              </li>
+              <li ng-class="{'active':signup}">
+                <a href="" ui-sref="signup" ng-click="signupAct()"><span class="fas fa-user-plus"></span> Sign Up</a>
+              </li>
+              <li>
+                <form class="navbar-form">
+                  <div class="inner-addon">
+                    <span class="fas fa-search"></span>
+                    <input type="text" class="form-control" placeholder=" Search">
+                  </div>                 
+                </form>                 
+              </li>
+              <li>
+                  <button type="button" class="btn btn-default navbar-btn">Add Question</button>
+              </li>
+          </ul>    
+      </div>
+    </div>
+  </nav>
+  
+  <div ui-view></div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <!-- <script src="bower_components/angular-route/angular-route.js"></script> -->
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
