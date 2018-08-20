@@ -15,10 +15,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('api/register', function () {
-	$user = new App\User;
-    return $user->signUp();
-});
+// Route::get('api/register', function () {
+// 	$user = new App\User;
+//     return $user->signUp();
+// });
 Route::get('api/login', function () {
 	$user = new App\User;
     return $user->signIn();
@@ -33,6 +33,10 @@ Route::get('api/user/changepassword', function () {
 	$user = new App\User;
     return $user->changePassword();   
 });
+// Route::get('api/users/{user_name}', function ($user_name) {
+// 	$user = new App\User;
+//     return $user->exist($user_name);
+// });
 Route::get('api/user/read', function () {
 	$user = new App\User;
     return $user->read();

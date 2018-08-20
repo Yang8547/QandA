@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+header("Access-Control-Allow-Origin:*");
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE, PUT');
+header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With, X-CLIENT-ID, X-CLIENT-SECRET');
+header('Access-Control-Allow-Credentials: true');
+
+Route::get('/users/{user_name}', 'UserController@exist');
+Route::post('/users', 'UserController@create');

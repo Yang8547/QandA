@@ -178,7 +178,7 @@ class User extends Authenticatable
         $user->intro = Request::get('intro');
         $user->avatar_url = Request::get('avatar_url');
 
-        return $user->save() ? ['status'=>1] : ['status'=>0, 'msg'=>'update failed']
+        return $user->save() ? ['status'=>1] : ['status'=>0, 'msg'=>'update failed'];
 
     }
 
