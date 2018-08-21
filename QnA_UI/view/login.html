@@ -1,9 +1,40 @@
 <div class="container">
-	<h1>login</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<div class="row signup-main">
+		
+       	<div class="text-center">
+       		<h1 class="title">Log in</h1>
+       		<hr />
+       	</div>
+   
+		<div class="main-register">
+			<form ng-submit="login()" name="loginForm">				
+				<div class="form-group">
+					<label class="control-label">User Name</label>
+					<input type="text" ng-model="user.user_name" name="userName" 
+					required class="form-control" placeholder="Enter user name">
+					<small ng-if="loginForm.userName.$error.required && 
+					loginForm.userName.$touched" class="error">
+						User name cannot be empty
+					</small>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Password</label>
+					<input type="Password" ng-model="user.Password" name="password" 
+					required class="form-control" 
+					placeholder="Enter your password">
+					<small ng-if="loginForm.password.$error.required && 
+					loginForm.password.$touched" class="error">
+						Password cannot be empty
+					</small>
+				</div>
+				<p class="error" ng-if="invalid">
+				User name or password is invalid
+				</p>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Log in</button>
+				</div>					
+			</form>
+		</div>
+	</div>
 </div>

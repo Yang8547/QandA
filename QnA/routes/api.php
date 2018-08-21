@@ -24,3 +24,4 @@ header('Access-Control-Allow-Credentials: true');
 
 Route::get('/users/{user_name}', 'UserController@exist');
 Route::post('/users', 'UserController@create');
+Route::post('/user_login', 'UserController@login');
