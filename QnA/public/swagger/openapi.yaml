@@ -133,6 +133,45 @@ paths:
                   data:
                     type: integer
                     description: the number of user record with the id
+
+  '/questions':
+    post:
+      tags:
+        - Questions
+      summary: create new question
+      description: user add a question
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                  required: false
+                status:
+                  type: string
+                  required: false
+      responses:
+        '201':
+          description: Record has been added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  status:
+                    type: string
+                    description: 1 successfully, 0 fail
+                  msg:
+                    type: string                  
 components:                               #
   schemas:
     users:
@@ -177,3 +216,29 @@ components:                               #
           description: captcha for reset password
           type: string
           example: abcd
+  
+    questions:
+      type: object
+      properties:
+        id:
+          description: primary key
+          type: integer
+          example: 1
+        user_id:
+          description: user id
+          type: integer
+          example: 1
+        title:
+          description: question title
+          type: string
+        description:
+          description: question description
+          type: string                  
+        status:
+          description: question status
+          type: string
+          default: ok 
+        
+      required:  
+        - user_id
+        - title  

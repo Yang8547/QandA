@@ -20,6 +20,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 		controller: 'signupCtrl'
 
 	})
+	.state('question', {
+		url: '/question',
+		abstract: true,
+		template: '<div ui-view><div>'		
+	})
+	.state('question.add', {
+		url: '/add',
+		templateUrl: 'view/addQuestion.html',
+		controller: 'questionCtrl'
+	})
 }]);
 
 app.run(['$rootScope','$window', function($rootScope,$window) {

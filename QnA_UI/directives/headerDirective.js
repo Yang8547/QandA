@@ -28,7 +28,12 @@ angular.module('myApp')
         $rootScope.$broadcast('currentLoginUserID', null);
         $window.location.href='/';
       })
+    };
+
+    $scope.goAdd = function() {
+      $state.go('question.add');
     }
+
   }];
   return {
     restrict:'A',

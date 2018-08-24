@@ -26,3 +26,4 @@ Route::get('/users/{user_name}', 'UserController@exist');
 Route::post('/users', 'UserController@create');
 Route::post('/user_login', 'UserController@login');
 Route::post('/user_logout', 'UserController@logout');
+Route::post('/questions', 'QuestionController@create');
