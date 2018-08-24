@@ -1,18 +1,18 @@
 <div class="container">
 	<div class="row signup-main">
-		
-       	<div class="text-center">
+
+				<div class="text-center">
        		<h1 class="title">Log in</h1>
        		<hr />
        	</div>
-   
+
 		<div class="main-register">
-			<form ng-submit="login()" name="loginForm">				
+			<form ng-submit="login()" name="loginForm">
 				<div class="form-group">
 					<label class="control-label">User Name</label>
-					<input type="text" ng-model="user.user_name" name="userName" 
+					<input type="text" ng-model="user.user_name" name="userName"
 					required class="form-control" placeholder="Enter user name">
-					<small ng-if="loginForm.userName.$error.required && 
+					<small ng-if="loginForm.userName.$error.required &&
 					loginForm.userName.$touched" class="error">
 						User name cannot be empty
 					</small>
@@ -20,10 +20,10 @@
 
 				<div class="form-group">
 					<label class="control-label">Password</label>
-					<input type="Password" ng-model="user.Password" name="password" 
-					required class="form-control" 
+					<input type="Password" ng-model="user.Password" name="password"
+					required class="form-control"
 					placeholder="Enter your password">
-					<small ng-if="loginForm.password.$error.required && 
+					<small ng-if="loginForm.password.$error.required &&
 					loginForm.password.$touched" class="error">
 						Password cannot be empty
 					</small>
@@ -33,7 +33,7 @@
 				</p>
 				<div class="text-center">
 					<button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Log in</button>
-				</div>					
+				</div>
 			</form>
 		</div>
 	</div>

@@ -3,7 +3,7 @@ angular.module('myApp')
 	this.register = function(data) {
 		var defered = $q.defer();
 		// console.log(data);
-		
+
 		$http.post('http://localhost:8000/api/users', data).then(function(res) {
 			defered.resolve(res);
 		}, function(err) {
@@ -27,6 +27,16 @@ angular.module('myApp')
 	this.login = function(data) {
 		var defered = $q.defer();
 		$http.post('http://localhost:8000/api/user_login', data).then(function(res) {
+			defered.resolve(res);
+		}, function(err) {
+			defered.reject(err);
+		});
+		return defered.promise;
+	}
+
+	this.signout = function(data) {
+		var defered = $q.defer();
+		$http.post('http://localhost:8000/api/user_logout', data).then(function(res) {
 			defered.resolve(res);
 		}, function(err) {
 			defered.reject(err);

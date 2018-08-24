@@ -15,7 +15,8 @@ class UserController extends Controller
     public function exist($user_name) {
         $count = User::where('username', $user_name)
                  ->count();
-        return ['data' => $count];
+        return response()->json(['data' => $count], 200);
+        // return ['data' => $count];
     }
 
 
@@ -23,7 +24,7 @@ class UserController extends Controller
 		
 		// validation 
 		$validator = Validator::make($request->all(), [
-            'user_name' => 'required'|unique:users,
+            'user_name' => 'required',
             'Password' => 'required',
         ]);
 
@@ -39,9 +40,12 @@ class UserController extends Controller
         $emailData = ['name' => 'Toby'];
         if($user->save()) {
         	// Mail::to('anyang47@hotmail.com')->send(new RegisterMail($emailData));
-            return ['msg'=>'Record has been added successfully',
+        	return response()->json(['msg'=>'Record has been added successfully',
             		'username'=>$user->username,
-            		'id'=>$user->id];
+            		'id'=>$user->id], 201);
+            // return ['msg'=>'Record has been added successfully',
+            // 		'username'=>$user->username,
+            // 		'id'=>$user->id];
         } else {
            return ['msg'=>'Record cannot be added!'];
         }
@@ -70,9 +74,19 @@ class UserController extends Controller
                 session()->put('username', $userInfo->username);
                 session()->put('userID', $userInfo->id);
                 // dd(session()->all());
-                return ['status'=>1, 'msg'=>'login successfully', 
-                'name'=>session('username'), 'id'=>session('userID')];
+                return response()->json(['status'=>1, 
+                	'msg'=>'login successfully', 
+                	'name'=>session('username'), 
+                	'id'=>session('userID')], 200);
+                // return ['status'=>1, 'msg'=>'login successfully', 
+                // 'name'=>session('username'), 'id'=>session('userID')];
             }
         }
+    }
+
+    public function logout(Request $request) {
+    	session()->forget('username');
+        session()->forget('userID');
+        return ['status'=>1, 'msg'=>'log out successfully', 'id'=>$request->id];
     }
 }

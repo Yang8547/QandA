@@ -21,3 +21,9 @@ body {
 .inner-addon input {
 	padding-left: 30px;
 }
+.navbar-default .navbar-nav>li>a.profile {
+	color:blue;
+}
+.navbar-default .navbar-nav>li>a.profile:hover{
+	background-color: #FFFFFF;
+}

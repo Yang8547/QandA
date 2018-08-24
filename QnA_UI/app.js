@@ -22,21 +22,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 	})
 }]);
 
-app.controller('navCtrl', ['$scope', function($scope) {
-	$scope.home = true;
-	$scope.homeAct = function() {
-		$scope.home = true;
-		$scope.login = false;
-		$scope.signup = false;
-	};
-	$scope.loginAct = function() {
-		$scope.home = false;
-		$scope.login = true;
-		$scope.signup = false;
-	};
-	$scope.signupAct = function(){
-		$scope.home = false;
-		$scope.login = false;
-		$scope.signup = true;
-	}
-}])
+app.run(['$rootScope','$window', function($rootScope,$window) {
+	$rootScope.currentLoginUser = $window.localStorage.getItem('userName');
+	$rootScope.currentLoginUserID = $window.localStorage.getItem('id');
+}]);

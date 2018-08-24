@@ -1,0 +1,179 @@
+openapi: 3.0.0
+info:
+  description: Initial deployment
+  version: 1.0.0
+  title: QnA API documentation
+servers:
+  - url: 'http://localhost:8000/api'
+    description: interface
+tags:
+  - name: Users
+    description: user related API
+  - name: Questions
+    description: question related API
+  - name: Answers
+    description: anwser related API
+  - name: Comments
+    description: comment API
+paths:
+  '/users':
+    post:
+      tags:
+        - Users
+      summary: create new user
+      description: register new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_name:
+                  type: string
+                Password:
+                  type: string
+      responses:
+        '201':
+          description: Record has been added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  id:
+                    type: integer
+  '/user_login':
+    post:
+      tags:
+        - Users
+      summary: login
+      description: user login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                Password:
+                  type: string
+      responses:
+        '200':
+          description: login successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  id:
+                    type: integer
+                  status:
+                    type: integer
+                    description: 1 is success 0 is fail
+                  msg:
+                    type: string
+  '/user_logout':
+    post:
+      tags:
+        - Users
+      summary: logout
+      description: user logout
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+      responses:
+        '200':
+          description: logout successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  status:
+                    type: integer
+                    description: 1 is success 0 is fail
+                  msg:
+                    type: string
+  '/users/{user_name}':
+    get:
+      tags:
+        - Users
+      summary: get user by user name
+      description: use for check user exist
+      parameters:
+        - name: user_name
+          in: path
+          description: user name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: record retireved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: integer
+                    description: the number of user record with the id
+components:                               #
+  schemas:
+    users:
+      type: object
+      properties:
+        id:
+          description: primary key
+          type: integer
+          example: 1
+        username:
+          description: user name
+          type: string
+          example: name
+        password:
+          description: Hashed password
+          type: string
+        email:
+          description: user email
+          type: string
+          example: example@example.com
+        phone:
+          description: user phone
+          type: string
+          example: 5141116666
+        intro:
+          description: user introduction
+          type: string
+          example: lorem
+        avatar_url:
+          description: user avatar url
+          type: string
+          example: image/user1.jpg
+        created_at:
+          description: create time
+          type: string
+          example: '2018-04-04 18:23:48'
+        updated_at:
+          description: update time
+          type: string
+          example: '2018-04-04 18:23:48'
+        email_captcha  :
+          description: captcha for reset password
+          type: string
+          example: abcd
