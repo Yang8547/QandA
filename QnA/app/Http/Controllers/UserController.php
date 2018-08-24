@@ -87,6 +87,6 @@ class UserController extends Controller
     public function logout(Request $request) {
     	session()->forget('username');
         session()->forget('userID');
-        return ['status'=>1, 'msg'=>'log out successfully', 'id'=>$request->id];
+        return response()->json(['status'=>1, 'msg'=>'log out successfully', 'id'=>$request->id],200);
     }
 }

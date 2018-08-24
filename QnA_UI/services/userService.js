@@ -26,7 +26,7 @@ angular.module('myApp')
 
 	this.login = function(data) {
 		var defered = $q.defer();
-		$http.post('http://localhost:8000/api/user_login', data).then(function(res) {
+		$http.post('http://localhost:8000/api/login', data).then(function(res) {
 			defered.resolve(res);
 		}, function(err) {
 			defered.reject(err);
@@ -36,7 +36,7 @@ angular.module('myApp')
 
 	this.signout = function(data) {
 		var defered = $q.defer();
-		$http.post('http://localhost:8000/api/user_logout', data).then(function(res) {
+		$http.post('http://localhost:8000/api/logout', data).then(function(res) {
 			defered.resolve(res);
 		}, function(err) {
 			defered.reject(err);

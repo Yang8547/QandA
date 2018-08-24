@@ -24,6 +24,11 @@ header('Access-Control-Allow-Credentials: true');
 
 Route::get('/users/{user_name}', 'UserController@exist');
 Route::post('/users', 'UserController@create');
-Route::post('/user_login', 'UserController@login');
-Route::post('/user_logout', 'UserController@logout');
+Route::post('/login', 'UserController@login');
+Route::post('/logout', 'UserController@logout');
+
 Route::post('/questions', 'QuestionController@create');
+Route::get('/questions/{question_id}', 'QuestionController@read');
+Route::get('/questions-by-user/{user_id}', 'QuestionController@readByUserId');
+Route::put('/questions/{question_id}', 'QuestionController@update');
+Route::delete('/questions/{question_id}', 'QuestionController@delete');

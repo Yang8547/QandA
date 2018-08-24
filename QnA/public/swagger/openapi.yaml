@@ -45,7 +45,7 @@ paths:
                     type: string
                   id:
                     type: integer
-  '/user_login':
+  '/login':
     post:
       tags:
         - Users
@@ -79,7 +79,7 @@ paths:
                     description: 1 is success 0 is fail
                   msg:
                     type: string
-  '/user_logout':
+  '/logout':
     post:
       tags:
         - Users
@@ -172,6 +172,42 @@ paths:
                     description: 1 successfully, 0 fail
                   msg:
                     type: string                  
+  '/questions/{question_id}':
+    get:
+      tags:
+        - Questions
+      summary: get question by id 
+      description: get question by id 
+      parameters:
+        - name: id
+          in: path
+          description: question id 
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: record retireved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: question id
+                  user_id:
+                    type: integer
+                    description: user id
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  created_at:
+                    type: date
+                  updated_at:
+                    type: date
+
 components:                               #
   schemas:
     users:
@@ -216,7 +252,9 @@ components:                               #
           description: captcha for reset password
           type: string
           example: abcd
-  
+      required:
+        - username
+        - password
     questions:
       type: object
       properties:
