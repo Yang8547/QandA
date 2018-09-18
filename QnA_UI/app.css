@@ -27,3 +27,39 @@ body {
 .navbar-default .navbar-nav>li>a.profile:hover{
 	background-color: #FFFFFF;
 }
+
+/*time line*/
+.row.time-line {
+    width: 500px;
+    margin: auto;
+}
+.item.well {
+    background-color: #fff;
+    /* background-color: #fcf8e3; */
+}
+.item-type,
+.create-time,
+.actions {
+    color: #949494;
+}
+.title {
+    font-weight: bold;
+    line-height: 1.3;
+    color: #333;
+    font-size: 18px;
+}
+.comment-content {
+    float: right;
+    width: 90%;
+}
+
+.comment-user {
+	float: left;
+	widows: 10%;
+}
+
+.comment-item {
+    overflow: auto;
+    padding-bottom: 20px;
+}
+
