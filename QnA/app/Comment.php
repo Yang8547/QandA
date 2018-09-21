@@ -18,6 +18,10 @@ class Comment extends Model
     	return new Answer;
     }
 
+    public function answer() {
+        return $this->belongsTo('App\Answer');
+    }
+
     // add comment
     public function add() {
     	// check login

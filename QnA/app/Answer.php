@@ -125,6 +125,14 @@ class Answer extends Model
     public function users() {
     	return $this->belongsToMany('App\User')->withPivot('vote')->withTimestamps();
     }
+    // one to many relationship
+    public function question() {
+        return $this->belongsTo('App\Question');
+    }
+
+    public function comments() {
+        return $this->hasMany('App\Comment');
+    }
 
     // like dislike method
     public function vote() {

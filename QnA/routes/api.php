@@ -32,3 +32,5 @@ Route::get('/questions/{question_id}', 'QuestionController@read');
 Route::get('/questions-by-user/{user_id}', 'QuestionController@readByUserId');
 Route::put('/questions/{question_id}', 'QuestionController@update');
 Route::delete('/questions/{question_id}', 'QuestionController@delete');
+
+Route::get('api/timeline', 'CommonController@timeline');
