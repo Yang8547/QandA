@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>QnA</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="view/style/signup.css">
+</head>
+<body>
+  <div header></div>
+  <div ui-view></div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <!-- <script src="bower_components/angular-route/angular-route.js"></script> -->
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="app.js"></script>
+  <!-- controllers -->
+  <script src="controllers/signupCtrl.js"></script>
+  <script src="controllers/loginCtrl.js"></script>
+  <script src="controllers/questionCtrl.js"></script>
+  <script src="controllers/homeCtrl.js"></script>
+
+  <!-- services -->
+  <script src="services/userService.js"></script>
+  <script src="services/questionService.js"></script>
+  <script src="services/homeService.js"></script>
+  <!-- directives -->
+  <script src="directives/headerDirective.js"></script>
+</body>
+</html>

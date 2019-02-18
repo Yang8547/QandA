@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default">
+    <!-- Navbar Container -->
+  <div class="container">
+    <!-- Navbar Header -->
+    <div class="navbar-header">
+        <!-- Toggle Button -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navComponents" aria-expanded="false">
+            <i class="glyphicon glyphicon-align-center"></i>
+        </button>
+
+        <!-- Navbar Brand -->
+        <a href="" ui-sref="home" class="navbar-brand" ng-click="homeAct()">
+            QnA
+        </a>
+    </div>
+
+    <!-- Navbar Collapse -->
+    <div class="collapse navbar-collapse" id="navComponents">
+        <!-- Navbar Menu -->
+        <ul class="nav navbar-nav">
+            <li ng-class="{'active':isActive('/home')}">
+              <a href="" ui-sref="home"><span class="fas fa-home"></span> Home</a>
+            </li>
+            <li ng-class="{'active':isActive('/login')}" ng-if="currentLoginUser==null">
+              <a href="" ui-sref="login" ><span class="fas fa-sign-in-alt"></span> Log In</a>
+            </li>
+            <li ng-class="{'active':isActive('/signup')}" ng-if="currentLoginUser==null">
+              <a href="" ui-sref="signup"><span class="fas fa-user-plus"></span> Sign Up</a>
+            </li>
+            <li>
+              <form class="navbar-form">
+                <div class="inner-addon">
+                  <span class="fas fa-search"></span>
+                  <input type="text" class="form-control" placeholder=" Search">
+                </div>
+              </form>
+            </li>
+            <li>
+                <button type="button" class="btn btn-default navbar-btn" 
+                ng-click = "goAdd()">Add Question</button>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-if="currentLoginUser">
+              <a class="profile"><span class="fas fa-user-edit"></span>{{currentLoginUser}}</a>
+            </li>
+            <li ng-if="currentLoginUser">
+              <a href="" ng-click="signout()"><span class="fas fa-sign-out-alt"></span> Sign Out</a>
+            </li>
+        </ul>
+    </div>
+  </div>
+</nav>

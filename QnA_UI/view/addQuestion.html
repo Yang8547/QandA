@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row signup-main">
+
+		<div class="text-center">
+       		<h1 class="title">Add a new question</h1>
+       		<hr />
+       	</div>
+
+		<div class="main-register">
+			<form ng-submit="addQuestion()" name="addQuestionForm">
+				<div class="form-group">
+					<label class="control-label">Title</label>
+					<input type="text" ng-model="question.title" name="title"
+					required class="form-control" placeholder="Title">
+					<small ng-if="addQuestionForm.title.$error.required &&
+					addQuestionForm.title.$touched" class="error">
+						Title cannot be empty
+					</small>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label">Description</label>
+					<input type="textarea" ng-model="question.description" name="description"
+					class="form-control">				
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary" 
+					ng-disabled="addQuestionForm.$invalid">Add Question</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
